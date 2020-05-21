@@ -5,3 +5,5 @@ Get the Py Open Weather map library here: https://github.com/csparpa/pyowm
 
 You will need a free Open Weather Map key from here: https://openweathermap.org/api
 
+Function references for Button Shim and Inky Phat can be found at: https://shop.pimoroni.com/
+
