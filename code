@@ -1,0 +1,198 @@
+from inky import InkyPHAT
+from PIL import Image, ImageFont, ImageDraw
+from font_fredoka_one import FredokaOne
+from time import sleep
+from pyowm import OWM
+import buttonshim
+
+
+API_key = "YOUR_OWM_API_KEY_HERE"
+
+buttonshim.set_pixel(255, 0, 255)
+
+@buttonshim.on_press(buttonshim.BUTTON_A)
+def button_a(button, pressed):
+    buttonshim.set_pixel(255, 0, 0)
+    owm = OWM(API_key)
+    obs = owm.weather_at_place("Houston,US")
+    w = obs.get_weather()
+    
+    inky_display = InkyPHAT("red")
+    inky_display.set_border(inky_display.WHITE)
+    
+    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    font = ImageFont.truetype(FredokaOne, 22)
+    temp = (str(w.get_temperature('fahrenheit')['temp']))
+    city = "Houston, TX"
+    current = w.get_detailed_status()
+    humid = (str(w.get_humidity()))
+    
+    draw.text((0,0), city, inky_display.BLACK, font)
+    draw.text((0,25), "Temp:", inky_display.BLACK, font)
+    draw.text((75, 25), temp, inky_display.RED, font)
+    draw.text((0, 50), "Humidity:", inky_display.BLACK, font)
+    draw.text((110, 50), humid, inky_display.RED, font)
+    draw.text((0,75), current, inky_display.RED, font)
+    
+    inky_display.set_image(img)
+    inky_display.show()
+    
+    print(city)
+    print(temp)
+    print(humid)
+    print(current)
+    sleep(10)
+    
+    buttonshim.set_pixel(0, 255, 0)
+
+@buttonshim.on_press(buttonshim.BUTTON_B)
+def button_b(button, pressed):
+    buttonshim.set_pixel(255, 0, 0)
+    owm = OWM(API_key)
+    obs = owm.weather_at_place("Honolulu,US")
+    w = obs.get_weather()
+    
+    inky_display = InkyPHAT("red")
+    inky_display.set_border(inky_display.WHITE)
+    
+    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    font = ImageFont.truetype(FredokaOne, 22)
+    temp = (str(w.get_temperature('fahrenheit')['temp']))
+    city = "Honolulu, HI"
+    current = w.get_detailed_status()
+    humid = (str(w.get_humidity()))
+    
+    draw.text((0,0), city, inky_display.BLACK, font)
+    draw.text((0,25), "Temp:", inky_display.BLACK, font)
+    draw.text((75, 25), temp, inky_display.RED, font)
+    draw.text((0, 50), "Humidity:", inky_display.BLACK, font)
+    draw.text((110, 50), humid, inky_display.RED, font)
+    draw.text((0,75), current, inky_display.RED, font)
+    
+    
+    inky_display.set_image(img)
+    inky_display.show()
+    
+    print(city)
+    print(temp)
+    print(humid)
+    print(current)
+    sleep(10)
+    buttonshim.set_pixel(0, 255, 0)
+    
+@buttonshim.on_press(buttonshim.BUTTON_C)
+def button_c(button, pressed):
+    buttonshim.set_pixel(255, 0, 0)
+    owm = OWM(API_key)
+    obs = owm.weather_at_place("Akron,US")
+    w = obs.get_weather()
+    
+    inky_display = InkyPHAT("red")
+    inky_display.set_border(inky_display.WHITE)
+    
+    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    font = ImageFont.truetype(FredokaOne, 22)
+    temp = (str(w.get_temperature('fahrenheit')['temp']))
+    city = "Akron, OH"
+    current = w.get_detailed_status()
+    humid = (str(w.get_humidity()))
+    
+    draw.text((0,0), city, inky_display.BLACK, font)
+    draw.text((0,25), "Temp:", inky_display.BLACK, font)
+    draw.text((75, 25), temp, inky_display.RED, font)
+    draw.text((0, 50), "Humidity:", inky_display.BLACK, font)
+    draw.text((110, 50), humid, inky_display.RED, font)
+    draw.text((0,75), current, inky_display.RED, font)
+    buttonshim.set_pixel(255, 0, 0)
+    
+    inky_display.set_image(img)
+    inky_display.show()
+    
+    print(city)
+    print(temp)
+    print(humid)
+    print(current)
+    sleep(10)
+    buttonshim.set_pixel(0, 255, 0)
+
+@buttonshim.on_press(buttonshim.BUTTON_D)
+def button_d(button, pressed):
+    buttonshim.set_pixel(255, 0, 0)
+    
+    owm = OWM(API_key)
+    obs = owm.weather_at_place("Cincinnati,US")
+    w = obs.get_weather()
+    
+    inky_display = InkyPHAT("red")
+    inky_display.set_border(inky_display.WHITE)
+    
+    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    font = ImageFont.truetype(FredokaOne, 22)
+    temp = (str(w.get_temperature('fahrenheit')['temp']))
+    city = "Ft. Wright, KY"
+    current = w.get_detailed_status()
+    humid = (str(w.get_humidity()))
+    
+    draw.text((0,0), city, inky_display.BLACK, font)
+    draw.text((0,25), "Temp:", inky_display.BLACK, font)
+    draw.text((75, 25), temp, inky_display.RED, font)
+    draw.text((0, 50), "Humidity:", inky_display.BLACK, font)
+    draw.text((110, 50), humid, inky_display.RED, font)
+    draw.text((0,75), current, inky_display.RED, font)
+    buttonshim.set_pixel(255, 0, 0)
+    
+    inky_display.set_image(img)
+    inky_display.show()
+    
+    print(city)
+    print(temp)
+    print(humid)
+    print(current)
+    sleep(10)
+    buttonshim.set_pixel(0, 255, 0)
+    
+@buttonshim.on_press(buttonshim.BUTTON_E)
+def button_e(button, pressed):
+    buttonshim.set_pixel(255, 0, 0)
+    
+    owm = OWM(API_key)
+    obs = owm.weather_at_place("Chicago,US")
+    w = obs.get_weather()
+    
+    inky_display = InkyPHAT("red")
+    inky_display.set_border(inky_display.WHITE)
+    
+    img = Image.new("P", (inky_display.WIDTH, inky_display.HEIGHT))
+    draw = ImageDraw.Draw(img)
+    
+    font = ImageFont.truetype(FredokaOne, 22)
+    temp = (str(w.get_temperature('fahrenheit')['temp']))
+    city = "Chicago, IL"
+    current = w.get_detailed_status()
+    humid = (str(w.get_humidity()))
+    
+    draw.text((0,0), city, inky_display.BLACK, font)
+    draw.text((0,25), "Temp:", inky_display.BLACK, font)
+    draw.text((75, 25), temp, inky_display.RED, font)
+    draw.text((0, 50), "Humidity:", inky_display.BLACK, font)
+    draw.text((110, 50), humid, inky_display.RED, font)
+    draw.text((0,75), current, inky_display.RED, font)
+    buttonshim.set_pixel(255, 0, 0)
+    
+    inky_display.set_image(img)
+    inky_display.show()
+    
+    print(city)
+    print(temp)
+    print(humid)
+    print(current)
+    sleep(10)
+    buttonshim.set_pixel(0, 255, 0)
